@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MusicScape</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="noiceCanceling.png">
+    <!-- favicon -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>MusicScape</h1>
+            <img class="logo" src="noiceCanceling.png" alt="Music Note">
+        </header>
+        <div class="control-panel">
+            <div class="playing-view">
+                <section class="widget">
+
+                </section>
+                <section class="player">
+                    <audio class="music-player" controls="controls" src="" autplay=""></audio>
+                </section>
+            </div>
+            <section class="search">
+                <form class="search-form">
+                    <input type="text" name="music-search" id="music-search" placeholder="Search for an Artist">
+                    <input type="submit" name="button" value="Find Artist" id="search-button">
+                </form>
+            </section>
+        </div>
+        <section class="results">
+            <div class="welcome-section">
+                <p class="welcome">Welcome to <em>MusicScape</em> ! Here at MusicScape, we utilize the Soundcloud API to help users search & stream music from SoundCloud.com </p>
+                <div class="instruct-and-warn">
+                    <div class="instructions">
+                        <h3 class="">Instructions to get started: </h3>
+                        <ol class="">
+                            <li>In the search bar above, type the name of the artist you want to hear.</li>
+                            <li>Select the desired artist from the results provided to pull up their available tracks.</li>
+                            <li>Select the track you want to play to begin streaming it.</li>
+                            <li>Escape into Music!</li>
+                        </ol>
+                    </div>
+                    <div class="caution">
+                        <h4>Keep In Mind:</h4>
+                        <p class="">SoundCloud.com is a site primarily dedicated to providing exposure to lesser known artists. Because of this, you will not be able to stream many of the more popular artists. So, get creative.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <script type='text/javascript' src="config.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
