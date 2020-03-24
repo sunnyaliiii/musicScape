@@ -1,10 +1,13 @@
 // var mykey = config.MY_TOKEN
 var mykey = '8538a1744a7fdaa59981232897501e04'
-const searchForm = document.querySelector('.search-form')
-const musicSearch = document.querySelector('#music-search')
-const resultsSection = document.querySelector('.results')
-const audio = document.querySelector('.music-player')
-const widget = document.querySelector('.widget')
+const searchForm = $('.search-form')
+const musicSearch = $('#music-search')
+const resultsSection = $('.results')
+const audio = $('.music-player')
+const widget = $('.widget')
+
+
+console.log('jquery', $)
 
 function playTrack(currentTrackDiv) {
     console.log(currentTrackDiv.id)
@@ -23,9 +26,9 @@ function playTrack(currentTrackDiv) {
     widget.insertAdjacentHTML('afterbegin', playHTML)
 }
 
-searchForm.addEventListener('submit', function(event) {
+searchForm.on('submit', function(event) {
     event.preventDefault()
-    var search = musicSearch.value
+    var search = musicSearch.val()
     console.log(search)
     artistSearch(search)
 })
@@ -39,8 +42,8 @@ function artistSearch(artist) {
     .then(function(json) {
         console.log(json)
 
-        while (resultsSection.hasChildNodes()) {
-            resultsSection.removeChild(resultsSection.firstChild)
+        while (resultsSection.children().length > 0) {
+            resultsSection.children()[0].remove()
         }
 
         for (var i = 0; i < 6; i++) {
@@ -49,6 +52,7 @@ function artistSearch(artist) {
             artistInfo.name = json[i].username
             artistInfo.picture = json[i].avatar_url
             artistInfo.trackCount = json[i].track_count
+            console.log(json)
 
             let artistHTML = `
           <div class="artist" id="${artistInfo.id}">
@@ -57,15 +61,15 @@ function artistSearch(artist) {
             <p class="track-count"># of Tracks Avail: ${artistInfo.trackCount}</p>
           </div>`
 
-            resultsSection.insertAdjacentHTML('beforeend', artistHTML)
+            resultsSection.append(artistHTML)
         }
     })
 
     .then(function() {
-        const artistDiv = document.querySelectorAll('.artist')
+        const artistDiv = $('.artist')
         for (var i = 0; i < artistDiv.length; i++) {
             let artistID = artistDiv[i].id
-            artistDiv[i].addEventListener('click', function() {
+           $(artistDiv[i]).on('click', function() {
                 console.log(artistID)
                 pullTracks(artistID)
             })
